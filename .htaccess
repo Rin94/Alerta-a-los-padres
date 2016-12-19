@@ -1,0 +1,13 @@
+DirectoryIndex index.php index.html index.htm
+Options +FollowSymLinks
+IndexIgnore */*
+<IfModule mod_rewrite.c>
+# Turn on the engine: 
+RewriteEngine on
+RewriteBase /VeranoCientifico
+# Don't perform redirects for files and directories that exist:
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# For everything else, redirect to index.php:
+RewriteRule . index.php
+</IfModule>
