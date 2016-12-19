@@ -8863,3 +8863,23 @@ Stack trace:
 REQUEST_URI=/VeranoCientifico/usuario/UpdateAjax?_=1477593056966
 HTTP_REFERER=http://localhost/VeranoCientifico/usuario/createPadre
 ---
+2016/12/19 06:09:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'jerad.salinas94@gmail.com' for key 'correo_UNIQUE'. The SQL statement executed was: INSERT INTO `usuario` (`nick`, `correo`, `contrasenia`, `tipo_id`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/UsuarioController.php (122)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/19 06:11:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Applications/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /Applications/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Applications/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Applications/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Applications/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Applications/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Applications/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Applications/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /Applications/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('grupo/create')
+#9 /Applications/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/VeranoCientifico/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/VeranoCientifico/grupo/create
+HTTP_REFERER=http://localhost/VeranoCientifico/
+---
