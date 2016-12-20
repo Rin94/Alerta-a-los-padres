@@ -34,6 +34,8 @@ class AlumnoController extends Controller
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
+                                'expression' =>
+                            'isset(Yii::app()->user->role) && (Yii::app()->user->role == "Tutor")',                                
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -70,8 +72,27 @@ class AlumnoController extends Controller
 		if(isset($_POST['Alumno']))
 		{
 			$model->attributes=$_POST['Alumno'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+                        #print_r($_POST['Alumno']);
+                        #Yii::app()->end();
+                        $model->usuario_id=NULL;
+                        $transaction = $model->dbConnection->beginTransaction();
+                        try{
+                            if($model->save()){
+                                $modelRelacion= new AlumnoHasPadre;
+                                $modelRelacion->padre_id=$_POST['Alumno']['padre_id'] ;
+                                $modelRelacion->alumno_id=$model->id;
+                                $modelRelacion->save();
+                                $transaction->commit();
+                            $this->redirect(array('view','id'=>$model->id));
+                            
+                        }
+                            
+                        } catch (Exception $ex) {
+                            $transaction->rollback();
+
+                        }
+			
+				
 		}
 
 		$this->render('create',array(

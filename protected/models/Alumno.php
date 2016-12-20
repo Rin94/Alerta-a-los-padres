@@ -25,6 +25,7 @@ class Alumno extends CActiveRecord {
     }
 
     private $fullName;
+    public $padre_id;
 
     public function getFullName() {
         return $this->nombre . ' ' . $this->apellido_pat. ' '.$this->apellido_mat;
@@ -37,7 +38,7 @@ class Alumno extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('nombre, apellido_pat, usuario_id', 'required'),
+            array('nombre, apellido_pat', 'required'),
             array('usuario_id', 'numerical', 'integerOnly' => true),
             array('nombre, apellido_pat, apellido_mat', 'length', 'max' => 45),
             // The following rule is used by search().
@@ -69,6 +70,7 @@ class Alumno extends CActiveRecord {
             'apellido_pat' => 'Apellido Pat',
             'apellido_mat' => 'Apellido Mat',
             'usuario_id' => 'Usuario',
+            'padre_id'=>'Padre',
         );
     }
 

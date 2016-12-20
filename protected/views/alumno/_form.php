@@ -16,14 +16,19 @@
 )); ?>
 
 	
-
-	<?php echo $form->errorSummary($model); ?>
+        
+	<?php 
+            $mas=  Padre::model()->findByAttributes(array('usuario_id'=>Yii::app()->user->getId()));
+            echo $form->errorSummary($model); 
+        ?>
 
 	<div class="row">
 		
 		<?php echo $form->textField($model,'nombre',
                         array('size'=>45,'maxlength'=>45,'placeholder'=>'nombre')); ?>
 		<?php echo $form->error($model,'nombre'); ?>
+                <?php echo $form->hiddenField
+                        ($model,'padre_id',array('span'=>2,'maxlength'=>45,'value'=>$mas->id, 'required')) ?>
 	</div>
 
 	<div class="row">

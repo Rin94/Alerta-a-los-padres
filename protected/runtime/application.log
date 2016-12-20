@@ -8883,3 +8883,24 @@ Stack trace:
 REQUEST_URI=/VeranoCientifico/grupo/create
 HTTP_REFERER=http://localhost/VeranoCientifico/
 ---
+2016/12/20 07:43:49 [warning] [application] Failed to set unsafe attribute "padre_id" of "Alumno".
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (74)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/20 07:47:22 [warning] [application] Failed to set unsafe attribute "padre_id" of "Alumno".
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (74)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/20 07:47:58 [warning] [application] Failed to set unsafe attribute "padre_id" of "Alumno".
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (74)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/20 07:48:14 [warning] [application] Failed to set unsafe attribute "padre_id" of "Alumno".
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (74)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/20 07:48:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`mydb`.`alumno`, CONSTRAINT `fk_alumno_usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `alumno` (`usuario_id`, `nombre`, `apellido_pat`, `apellido_mat`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (79)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/20 08:21:46 [warning] [application] Failed to set unsafe attribute "padre_id" of "Alumno".
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (74)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
+2016/12/20 08:22:25 [warning] [application] Failed to set unsafe attribute "padre_id" of "Alumno".
+in /Applications/MAMP/htdocs/VeranoCientifico/protected/controllers/AlumnoController.php (74)
+in /Applications/MAMP/htdocs/VeranoCientifico/index.php (13)
